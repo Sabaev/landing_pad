@@ -48,12 +48,13 @@ def main():
     path1 = "../resource/image/led/0"
     images = loader.load(path1)
 
-    # gaussian threshold vs plain threshold
-    gaussian_thresh = decor(image.led_thresh, True)
-    print(timed(gaussian_thresh, images[0]) / timed(image.led_thresh, images[0]))
-
-    # auto detector vs moments method
-    compare([image.get_points_by_moment, image.get_point_by_detector], images, ff=image.led_thresh)
+    # # gaussian threshold vs plain threshold
+    # gaussian_thresh = decor(image, True)
+    # print(timed(gaussian_thresh, images[0]) / timed(image.led_thresh, images[0]))
+    #
+    #
+    # # auto detector vs moments method
+    # # compare([image.get_points_by_moment, image.get_point_by_detector], images, ff=image.led_thresh)
 
 
 if __name__ == "__main__":

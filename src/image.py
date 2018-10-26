@@ -112,15 +112,15 @@ def main():
         x, y, w, h = cv2.boundingRect(np.array(key_points))
         cv2.rectangle(img.img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-        # find line by manual
-        x = key_points[0][0] - key_points[1][0]
-        y = key_points[0][1] - key_points[1][1]
-        length = math.sqrt(x ** 2 + y ** 2)
+        # # find line by manual
+        # x = key_points[0][0] - key_points[1][0]
+        # y = key_points[0][1] - key_points[1][1]
+        # length = math.sqrt(x ** 2 + y ** 2)
         if not focal_calculated:
-            camera.calculate_f_length(length, const.KNOWN_SIZE, const.TEST_HIGHT)
+            camera.calculate_f_length(w, const.KNOWN_SIZE, const.TEST_HIGHT)
             focal_calculated = True
 
-        distance = camera.calculate_distance_from_camera(200, length)
+        distance = camera.calculate_distance_from_camera(200, w)
 
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img.img, t, (30, 30), font, 1, (255, 255, 255), 1, cv2.LINE_AA)
