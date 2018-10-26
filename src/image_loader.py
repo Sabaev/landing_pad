@@ -4,7 +4,6 @@ import os.path
 
 def load(images_folder):
     images = []
-    titels = []
     for f in os.listdir(images_folder):
         f_ext = os.path.splitext(f)[1]
         if f_ext.lower() in [".bmp", ".jpg", ".png"]:
